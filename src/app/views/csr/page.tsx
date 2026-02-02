@@ -1,6 +1,6 @@
 "use client";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import fetchUsers from "@/app/shared/api/api";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {fetchUsers, mutateUserName} from "@/app/shared/api/api";
 
 interface User {
   id: number
@@ -23,12 +23,26 @@ export default function CsrPage() {
     queryClient.invalidateQueries({ queryKey: ['csrusers']});
   };
 
+  const mutatedata = useMutation({
+    mutationFn: ({id: number, data:{name: string}}) => mutateUserName(id, data),
+    onSuccess: () => {
+      dataInvalidate();
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  })
+  
   return (
     <div className="p-1">
       <h1>User list</h1>
       <ul>
         {data.map((user: User) => (
-            <li key={user.id}>{user.name}</li>
+            <li key={user.id}>
+              <button onClick={mutatedata}>
+                {user.name}
+              </button>
+            </li>
         ))}
       </ul>
       <button 

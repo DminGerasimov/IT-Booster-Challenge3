@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import fetchUsers from "@/app/shared/api/api";
+import {fetchUsers} from "@/app/shared/api/api";
 
 export default function Users() {
    interface User {

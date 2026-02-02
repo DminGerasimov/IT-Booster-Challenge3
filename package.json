@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "json-server": "json-server --watch ./src/app/database/db.json --port 3001",
+    "server": "json-server --watch ./src/app/database/db.json --port 3001",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

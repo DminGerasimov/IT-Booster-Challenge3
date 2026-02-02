@@ -1,6 +1,6 @@
 import { dehydrate, HydrationBoundary, QueryClient, useQueryClient } from "@tanstack/react-query";
 import Users from "./Users";
-import fetchUsers from "@/app/shared/api/api";
+import {fetchUsers} from "@/app/shared/api/api";
 
 export default async function SsrUsers() {
   const queryClient = new QueryClient();
