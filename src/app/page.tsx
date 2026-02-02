@@ -1,38 +1,14 @@
-"use client";
-import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
+import CsrPage from "./views/csr/page";
 
 
-async function fetchPosts() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  if (!res.ok) {
-    throw new Error("Failed to fetch userss");
-  }
-  return res.json();
-}
 
 export default function Home() {
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["users"],
-    queryFn: fetchPosts,
-  });
-
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error: {error.message}</div>;
-
-interface User {
-  id: number
-  username: string
-}
-
 
   return (
-    <div>
-      <h1>User list</h1>
-      <ul>
-        {data.map((user: User) => (
-          <li key={user.id}>{user.username}</li>
-        ))}
-      </ul>
+    <div className="flex flex-col">
+    <Link href='/views/csr/'>Client side rendering</Link>
+    <Link href='/views/ssr/'>Server side rendering</Link>
     </div>
   );
 }
