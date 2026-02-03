@@ -9,7 +9,7 @@ export interface User {
 
 export async function fetchUsers() {
   // const res = await fetch("https://jsonplaceholder.typicode.com/Users");
-  const res = await fetch(`${SERVER_URL}/users`);
+  const res = await fetch(`${SERVER_URL}users`);
   if (!res.ok) {
       throw new Error("Failed to fetch Users");
     }
@@ -21,11 +21,11 @@ export async function fetchUsers() {
     const res = await fetch(
       `${SERVER_URL}users/${data.id}`,
       {
-        method: "PATCH",
+        method: "PUT",
         headers: {
-          "Content-Type": "application/json",
+          "ContentType": "application/json",
         },
-        body: JSON.stringify(data.name),
+        body: JSON.stringify(data),
       }
     );
     if (!res.ok) {
