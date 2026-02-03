@@ -1,4 +1,10 @@
-export const SERVER_URL = 'http://localhost:3001';
+export const SERVER_URL = 'http://localhost:3001/';
+
+export interface User {
+  id: number
+  name: string
+  email: string
+}
 
 
 export async function fetchUsers() {
@@ -10,16 +16,16 @@ export async function fetchUsers() {
     return res.json();
   }
 
-  export async function mutateUserName(id: number, data: {name: string}) {
+  export async function mutateUserName(data: User) {
     // const res = await fetch("https://jsonplaceholder.typicode.com/Users");
     const res = await fetch(
-      `${SERVER_URL}/users/${id}`,
+      `${SERVER_URL}users/${data.id}`,
       {
-        method: "UPDATE",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data.name),
       }
     );
     if (!res.ok) {
