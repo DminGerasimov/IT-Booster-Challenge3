@@ -2,6 +2,7 @@
 
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {fetchUsers} from "@/app/shared/api/api";
+import { useState } from "react";
 
 export default function Users() {
    interface User {
@@ -9,6 +10,13 @@ export default function Users() {
     name: string
     email: string
   }
+  interface UserPagePagination {
+    page: number
+    limit?: number
+    hasMore: boolean
+  }
+  // const {page, setPage} = useState(1)
+
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["ssrusers"],
