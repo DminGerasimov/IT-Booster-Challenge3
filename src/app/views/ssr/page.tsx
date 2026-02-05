@@ -7,8 +7,8 @@ export default async function SsrUsers() {
 
 
   await queryClient.prefetchQuery({
-    queryKey: ["ssrusers"],
-    queryFn: fetchUsers,
+    queryKey: ["ssrusers", 1],
+    queryFn: () => fetchUsers(1),
   });
 
   return (

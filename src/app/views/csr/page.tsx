@@ -1,6 +1,6 @@
 "use client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import {fetchUsers, mutateUserName, User} from "@/app/shared/api/api";
+import {fetchAllUsers, mutateUserName, User} from "@/app/shared/api/api";
 
 
 export default function CsrPage() {
@@ -18,7 +18,7 @@ export default function CsrPage() {
   
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["csrusers"],
-    queryFn: fetchUsers,
+    queryFn: () => fetchAllUsers(),
   });
 
 
