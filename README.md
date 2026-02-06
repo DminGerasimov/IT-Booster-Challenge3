@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+  <h1 align="center">IT-Booster Challenge 3</h1>
 
-## Getting Started
 
-First, run the development server:
+
+
+## Описание
+
+  <p>Развёрнут Next Js проект, подключен tanstack query + devtools </p>
+  <p>В качестве API использован <a href=https://www.npmjs.com/package/json-server>json server</a>.</p>
+
+## Настройка проекта
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ git clone https://github.com/DminGerasimov/IT-Booster-Challenge3.git
+$ cd IT-Booster-Challenge3
+$ npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Запуск json server
+```bash
+$ npm run server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Запуск сервера
+```bash
+$ npm run dev
+```
 
-## Learn More
+## В браузере открываем <a href=http://localhost:3000/>страницу c 2-мя линками</a>
 
-To learn more about Next.js, take a look at the following resources:
+## Работа с CSR
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<p>По ссылке <a href=http://localhost:3000/views/csr>Client side rendering</a> реализован query запрос
+получения списка сущностей с json-сервера, инвалидация списка (по кнопке "Invalidate Data") и мутация единичной записи по клику на неё.</p>  
+<p>Query реализован на стороне клиента.</p>  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Работа с SSR + CSR. 
+<p>По ссылке <a href=http://localhost:3000/views/ssr>Server side rendering</a> реализован prefetchQuery
+ на стороне сервера (получение первой части списка) и query пагинация на стороне клиента.</p>
+ <p>Реализован хук useInfinitScroll с логированием события ("callback") видимости последнего выведенного элемента в списке во viewPort.</p>
 
-## Deploy on Vercel
+Для реализации более глубокого функционала, см. документацию.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Документация и ссылки
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ознакомьтесь с несколькими ресурсами, которые могут пригодиться при работе с TanstacjQuery:
+
+- Visit the [TanstackQuery](https://tanstack.com/query/latest) to learn more.
+- [Json server](https://www.npmjs.com/package/json-server).
+- [Next JS](https://nextjs.org/docs).
