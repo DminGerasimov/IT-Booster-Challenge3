@@ -1,6 +1,6 @@
 import { dehydrate, HydrationBoundary, QueryClient, useQueryClient } from "@tanstack/react-query";
 import { fetchInfiniteScrollUsers } from "@/app/shared/api/api";
-import InfinityScrollUsers from "./InfinityScrollUsers";
+import ScrollUsers from "./InfinityScrollUsers";
 
 export default async function infiniteScrollUsers() {
   const queryClient = new QueryClient();
@@ -8,13 +8,13 @@ export default async function infiniteScrollUsers() {
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ["infiniteScrollUsers"],
-    queryFn: () => fetchInfiniteScrollUsers(1),
+    queryFn: () => fetchInfiniteScrollUsers(),
     initialPageParam: 1,
   });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <InfinityScrollUsers />
+      <ScrollUsers />
     </HydrationBoundary>
   );
 }

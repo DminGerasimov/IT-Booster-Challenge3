@@ -9,7 +9,7 @@ export interface User {
 
 export async function fetchUsers(page = 0) {
   // const res = await fetch("https://jsonplaceholder.typicode.com/Users");
-  const res = await fetch(`${SERVER_URL}users?_page=${page}&_per_page=3`);
+  const res = await fetch(`${SERVER_URL}users?_page=${page}&_per_page=4`);
   if (!res.ok) {
       throw new Error("Failed to fetch Users");
     }
