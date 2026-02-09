@@ -4,7 +4,7 @@ interface UseInfinitScrollProps {
     callback: () => void
     triggerRef: RefObject<HTMLDivElement | null>
     wrapperRef: RefObject<HTMLDivElement | null>
-    offCallback?: boolean
+    offCallback?: boolean // Needs for stop callback instatiotion (triggerRef constantly in the portView)
 }
 
 export function useInfinitScroll(

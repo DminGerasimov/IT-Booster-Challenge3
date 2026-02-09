@@ -16,9 +16,9 @@ export async function fetchUsers(page = 0) {
     return res.json();
   }
 
-  export async function fetchInfiniteScrollUsers(page: number = 1) {
+  export async function fetchInfiniteScrollUsers(page: number = 1, signal?: any) {
     // const res = await fetch("https://jsonplaceholder.typicode.com/Users");
-    const res = await fetch(`${SERVER_URL}users?_page=${page}&_per_page=3`);
+    const res = await fetch(`${SERVER_URL}users?_page=${page}&_per_page=3`, signal);
     if (!res.ok) {
         throw new Error("Failed to fetch Users");
       }
